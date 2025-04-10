@@ -120,3 +120,11 @@ _Pvt_Extensions
 
 # Local appsettings
 appsettings.Development.json
+
+# Explicitly ignore binary files
+**/*.dll
+**/*.pdb
+**/*.exe
+**/*.cache
+**/bin/**
+**/obj/**

@@ -1,4 +1,4 @@
-﻿@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Authorization
 @inject IAuthorizationService AuthorizationService
 
 <!DOCTYPE html>
@@ -25,6 +25,10 @@
                     </li>
                     @if (User.Identity.IsAuthenticated)
                     {
+                        <li class="nav-item">
+                            <a asp-controller="Orders" asp-action="Index" class="nav-link">Orders</a>
+                        </li>
+                        
                         @if (User.IsInRole("Admin"))
                         {
                             <li>
@@ -47,9 +51,8 @@
     <script src="~/lib/twitter-bootstrap/js/bootstrap.min.js"></script>
     <script src="~/lib/jquery-validate/jquery.validate.js"></script>
     <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    
+    @RenderSection("Scripts", required: false)
 
 </body>
 </html>
-
-
-

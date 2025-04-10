@@ -1,4 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ChenKennethHW5.Models
@@ -8,6 +8,7 @@ namespace ChenKennethHW5.Models
         public int OrderDetailID { get; set; }
 
         [Required]
+        [Range(1, 1000, ErrorMessage = "Quantity must be between 1 and 1000")]
         public Int32 Quantity { get; set; }
 
         [Required]

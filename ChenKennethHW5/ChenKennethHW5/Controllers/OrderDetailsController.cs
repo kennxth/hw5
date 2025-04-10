@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -21,27 +21,21 @@ namespace ChenKennethHW5.Controllers
         }
 
         // GET: OrderDetails
-        public async Task<IActionResult> Index()
+        [Authorize]
+        public async Task<IActionResult> Index(int? orderId)
         {
-            return View(await _context.OrderDetails.ToListAsync());
-        }
-
-        // GET: OrderDetails/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null)
+            if (orderId == null)
             {
-                return NotFound();
+                return RedirectToAction("Index", "Orders");
             }
 
-            var orderDetail = await _context.OrderDetails
-                .FirstOrDefaultAsync(m => m.OrderDetailID == id);
-            if (orderDetail == null)
-            {
-                return NotFound();
-            }
+            var orderDetails = await _context.OrderDetails
+                .Where(od => od.Order.OrderID == orderId)
+                .Include(od => od.Product)
+                .Include(od => od.Order)
+                .ToListAsync();
 
-            return View(orderDetail);
+            return View(orderDetails);
         }
 
         // GET: OrderDetails/Create
@@ -70,19 +64,15 @@ namespace ChenKennethHW5.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize]
-        public async Task<IActionResult> Create(OrderDetail orderDetail, int SelectedProductID)
+        public async Task<IActionResult> Create([Bind("Quantity,Order")] OrderDetail orderDetail, int SelectedProductID)
         {
-            if (!ModelState.IsValid)
-            {
-                ViewBag.AllProducts = GetAllProducts();
-                return View(orderDetail);
-            }
-
             // Get the selected product
             Product selectedProduct = await _context.Products.FindAsync(SelectedProductID);
             if (selectedProduct == null)
             {
-                return View("Error", new string[] { "Product not found." });
+                ViewBag.AllProducts = GetAllProducts();
+                ModelState.AddModelError("", "Please select a valid product.");
+                return View(orderDetail);
             }
 
             // Get the associated order
@@ -92,13 +82,26 @@ namespace ChenKennethHW5.Controllers
                 return View("Error", new string[] { "Order not found." });
             }
 
-            // Assign properties
-            orderDetail.Product = selectedProduct;
-            orderDetail.ProductPrice = selectedProduct.Price;
-            orderDetail.ExtendedPrice = orderDetail.Quantity * selectedProduct.Price;
-            orderDetail.Order = dbOrder;
+            // Validate quantity
+            if (orderDetail.Quantity < 1 || orderDetail.Quantity > 1000)
+            {
+                ViewBag.AllProducts = GetAllProducts();
+                ModelState.AddModelError("Quantity", "Quantity must be between 1 and 1000.");
+                orderDetail.Order = dbOrder;
+                return View(orderDetail);
+            }
 
-            _context.OrderDetails.Add(orderDetail);
+            // Create a new order detail
+            OrderDetail newOrderDetail = new OrderDetail
+            {
+                Order = dbOrder,
+                Product = selectedProduct,
+                Quantity = orderDetail.Quantity,
+                ProductPrice = selectedProduct.Price,
+                ExtendedPrice = orderDetail.Quantity * selectedProduct.Price
+            };
+
+            _context.OrderDetails.Add(newOrderDetail);
             await _context.SaveChangesAsync();
 
             return RedirectToAction("Details", "Orders", new { id = dbOrder.OrderID });
@@ -113,7 +116,11 @@ namespace ChenKennethHW5.Controllers
                 return NotFound();
             }
 
-            var orderDetail = await _context.OrderDetails.FindAsync(id);
+            var orderDetail = await _context.OrderDetails
+                .Include(od => od.Product)
+                .Include(od => od.Order)
+                .FirstOrDefaultAsync(od => od.OrderDetailID == id);
+                
             if (orderDetail == null)
             {
                 return NotFound();
@@ -126,18 +133,36 @@ namespace ChenKennethHW5.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("OrderDetailID,Quantity,ProductPrice,ExtendedPrice")] OrderDetail orderDetail)
+        public async Task<IActionResult> Edit(int id, [Bind("OrderDetailID,Quantity,ProductPrice,ExtendedPrice,Order,Product")] OrderDetail orderDetail)
         {
             if (id != orderDetail.OrderDetailID)
             {
                 return NotFound();
             }
 
+            // Get the original order detail from the database
+            var dbOrderDetail = await _context.OrderDetails
+                .Include(od => od.Order)
+                .Include(od => od.Product)
+                .FirstOrDefaultAsync(od => od.OrderDetailID == id);
+
+            if (dbOrderDetail == null)
+            {
+                return NotFound();
+            }
+
+            // Update the quantity
+            dbOrderDetail.Quantity = orderDetail.Quantity;
+            
+            // Recalculate the product price and extended price
+            dbOrderDetail.ProductPrice = dbOrderDetail.Product.Price;
+            dbOrderDetail.ExtendedPrice = dbOrderDetail.Quantity * dbOrderDetail.ProductPrice;
+
             if (ModelState.IsValid)
             {
                 try
                 {
-                    _context.Update(orderDetail);
+                    _context.Update(dbOrderDetail);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
@@ -151,7 +176,7 @@ namespace ChenKennethHW5.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Details", "Orders", new { id = dbOrderDetail.Order.OrderID });
             }
             return View(orderDetail);
         }
@@ -179,14 +204,17 @@ namespace ChenKennethHW5.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var orderDetail = await _context.OrderDetails.FindAsync(id);
+            var orderDetail = await _context.OrderDetails
+                .Include(od => od.Order)
+                .FirstOrDefaultAsync(od => od.OrderDetailID == id);
+                
             if (orderDetail != null)
             {
                 _context.OrderDetails.Remove(orderDetail);
+                await _context.SaveChangesAsync();
             }
 
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction("Details", "Orders", new { id = orderDetail.Order.OrderID });
         }
 
         private bool OrderDetailExists(int id)

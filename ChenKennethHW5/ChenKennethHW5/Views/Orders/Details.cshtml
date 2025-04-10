@@ -1,77 +1,75 @@
-﻿@model ChenKennethHW5.Models.Order
+@model ChenKennethHW5.Models.Order
 
 @{
     ViewData["Title"] = "Details";
 }
 
 <h1>Details</h1>
-
+<h4>Order</h4>
+<hr />
 
 <div>
-    <h4>Order</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.OrderNumber)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.OrderNumber)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.OrderDate)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.OrderDate)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.OrderNotes)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.OrderNotes)
-        </dd>
-    </dl>
-    <h4>Order Items</h4>
-    <table class="table">
+    <div>
+        <p>
+            <strong>Customer Email</strong><br />
+            @Model.Email
+        </p>
+        <p>
+            <strong>Order Number</strong><br />
+            @Model.OrderNumber
+        </p>
+        <p>
+            <strong>Order Date</strong><br />
+            @Model.OrderDate.ToString("MM/dd/yyyy")
+        </p>
+        <p>
+            <strong>Order Notes</strong><br />
+            @(string.IsNullOrEmpty(Model.OrderNotes) ? "" : Model.OrderNotes)
+        </p>
+    </div>
+
+    <h4>Products on this Order</h4>
+    <table style="width: 100%; border-collapse: collapse;">
         <thead>
-            <tr>
-                <th>Product</th>
-                <th>Price</th>
-                <th>Quantity</th>
-                <th>Extended Price</th>
+            <tr style="border-bottom: 1px solid #000;">
+                <th style="text-align: left; padding: 5px;">Title</th>
+                <th style="text-align: left; padding: 5px;">Price</th>
+                <th style="text-align: left; padding: 5px;">Quantity</th>
+                <th style="text-align: left; padding: 5px;">Extended Price</th>
             </tr>
         </thead>
         <tbody>
             @foreach (var item in Model.OrderDetails)
             {
-                <tr>
-                    <td>@item.Product.Name</td>
-                    <td>@item.ProductPrice.ToString("C")</td>
-                    <td>@item.Quantity</td>
-                    <td>@item.ExtendedPrice.ToString("C")</td>
+                <tr style="background-color: #e6f2ff;">
+                    <td style="padding: 5px;">@item.Product.Name</td>
+                    <td style="padding: 5px;">@item.ProductPrice.ToString("C")</td>
+                    <td style="padding: 5px;">@item.Quantity</td>
+                    <td style="padding: 5px;">@item.ExtendedPrice.ToString("C")</td>
                 </tr>
             }
         </tbody>
     </table>
+
     <h4>Order Summary</h4>
-    <table class="table">
+    <div>Order Summary</div>
+    <table style="border-collapse: collapse; width: auto;">
         <tr>
-            <th>Subtotal:</th>
-            <td>@Model.Subtotal.ToString("C")</td>
+            <td style="text-align: left; padding: 5px;">Order Subtotal:</td>
+            <td style="text-align: right; padding: 5px;">@Model.Subtotal.ToString("C")</td>
         </tr>
         <tr>
-            <th>Sales Tax (8.25%):</th>
-            <td>@Model.SalesTax.ToString("C")</td>
+            <td style="text-align: left; padding: 5px;">Sales Tax:</td>
+            <td style="text-align: right; padding: 5px;">@Model.SalesTax.ToString("C")</td>
         </tr>
         <tr>
-            <th>Total:</th>
-            <td><strong>@Model.Total.ToString("C")</strong></td>
+            <td style="text-align: left; padding: 5px;">Order Total:</td>
+            <td style="text-align: right; padding: 5px;">@Model.Total.ToString("C")</td>
         </tr>
     </table>
 
-
-</div>
-
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.OrderID">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <div>
+        <a asp-action="Edit" asp-route-id="@Model?.OrderID">Edit</a> |
+        <a asp-action="Index" asp-controller="Orders">Back to List</a>
+    </div>
 </div>

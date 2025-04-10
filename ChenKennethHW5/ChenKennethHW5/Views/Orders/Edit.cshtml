@@ -1,4 +1,4 @@
-﻿@model ChenKennethHW5.Models.Order
+@model ChenKennethHW5.Models.Order
 
 @{
     ViewData["Title"] = "Edit";
@@ -15,13 +15,11 @@
             <input type="hidden" asp-for="OrderID" />
             <div class="form-group">
                 <label asp-for="OrderNumber" class="control-label"></label>
-                <input asp-for="OrderNumber" class="form-control" />
-                <span asp-validation-for="OrderNumber" class="text-danger"></span>
+                <input asp-for="OrderNumber" class="form-control" readonly />
             </div>
             <div class="form-group">
                 <label asp-for="OrderDate" class="control-label"></label>
-                <input asp-for="OrderDate" class="form-control" />
-                <span asp-validation-for="OrderDate" class="text-danger"></span>
+                <input asp-for="OrderDate" class="form-control" readonly />
             </div>
             <div class="form-group">
                 <label asp-for="OrderNotes" class="control-label"></label>
@@ -35,7 +33,38 @@
     </div>
 </div>
 
+<h4>Order Items</h4>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Product</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Extended Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.OrderDetails)
+        {
+            <tr>
+                <td>@item.Product.Name</td>
+                <td>@item.ProductPrice.ToString("C")</td>
+                <td>@item.Quantity</td>
+                <td>@item.ExtendedPrice.ToString("C")</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div>
+    <a asp-controller="OrderDetails" asp-action="Create" asp-route-orderId="@Model.OrderID" class="btn btn-primary">Add Another Item</a>
+    <a asp-controller="OrderDetails" asp-action="Index" asp-route-orderId="@Model.OrderID" class="btn btn-secondary">Edit Items</a>
+</div>
+
 <div>
     <a asp-action="Index">Back to List</a>
 </div>
 
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

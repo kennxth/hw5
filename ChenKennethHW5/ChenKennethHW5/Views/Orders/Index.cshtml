@@ -1,4 +1,4 @@
-﻿@using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.Identity
 @inject UserManager<AppUser> UserManager
 @model IEnumerable<ChenKennethHW5.Models.Order>
 
@@ -11,7 +11,7 @@
 @if (User.IsInRole("Customer"))
 {
     <p>
-        <a asp-action="Create" class="btn btn-primary">Create New Order</a>
+        <a asp-action="Create">Create New</a>
     </p>
 }
 
@@ -26,6 +26,9 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.OrderNotes)
+            </th>
+            <th>
+                Order Total
             </th>
             <th></th>
         </tr>
@@ -43,9 +46,11 @@
                 @Html.DisplayFor(modelItem => item.OrderNotes)
             </td>
             <td>
+                @item.Total.ToString("C")
+            </td>
+            <td>
                 <a asp-action="Edit" asp-route-id="@item.OrderID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.OrderID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.OrderID">Delete</a>
+                <a asp-action="Details" asp-route-id="@item.OrderID">Details</a>
             </td>
         </tr>
 }

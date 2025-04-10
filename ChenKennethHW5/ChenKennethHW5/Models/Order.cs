@@ -1,4 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,15 +11,21 @@ namespace ChenKennethHW5.Models
 
         // Order Numbers start at 70001
         public static int nextOrderNumber = 70001;
+        
+        [Required]
         public string Email { get; set; }
 
         [Display(Name = "Order Number")]
+        [Required]
         public int OrderNumber { get; set; }
 
         [Display(Name = "Order Date")]
+        [Required]
         public DateTime OrderDate { get; set; }
 
-        public string OrderNotes { get; set; }
+        [Display(Name = "Order Notes")]
+        [StringLength(500, ErrorMessage = "Order notes cannot exceed 500 characters")]
+        public string? OrderNotes { get; set; }
 
         public const decimal Tax_Rate = 0.0825m;
 

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -37,12 +37,17 @@ namespace ChenKennethHW5.Controllers
         {
             if (User.IsInRole("Admin"))
             {
-                return View(await _context.Orders.ToListAsync());
+                return View(await _context.Orders
+                    .Include(o => o.OrderDetails)
+                        .ThenInclude(od => od.Product)
+                    .ToListAsync());
             }
             else // must be Customer
             {
                 var userEmail = User.Identity.Name;
                 var userOrders = await _context.Orders
+                    .Include(o => o.OrderDetails)
+                        .ThenInclude(od => od.Product)
                     .Where(o => o.Email == userEmail)
                     .ToListAsync();
 
@@ -82,27 +87,9 @@ namespace ChenKennethHW5.Controllers
 
         // GET: Orders/Create
         [Authorize(Roles = "Customer")]
-        public IActionResult Create(int orderId)
+        public IActionResult Create()
         {
-            // a. Create a new instance of OrderDetail
-            OrderDetail od = new OrderDetail();
-
-            // b. Find the associated order
-            Order dbOrder = _context.Orders.Find(orderId);
-
-            if (dbOrder == null)
-            {
-                return View("Error", new string[] { "Order not found." });
-            }
-
-            // c. Set the order property
-            od.Order = dbOrder;
-
-            // d. Populate the ViewBag with the product list
-            ViewBag.AllProducts = GetAllProducts();
-
-            // e. Return the view with the order detail
-            return View(od);
+            return View();
         }
 
 
@@ -112,40 +99,30 @@ namespace ChenKennethHW5.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Customer")]
-        /*public async Task<IActionResult> Create([Bind("OrderID,OrderNumber,OrderDate,OrderNotes")] Order order)
-        {
-            if (ModelState.IsValid)
-            {
-                _context.Add(order);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(order);
-        }*/
-
         public async Task<IActionResult> Create([Bind("OrderNotes")] Order order)
         {
-            // 1. Generate the next order number
-            order.OrderID = Order.nextOrderNumber++;
-
-            // 2. Set the current date
-            order.OrderDate = DateTime.Now;
-
-            // 3. Get the current logged-in user
+            // We don't need to validate the model state since OrderNotes is optional
+            ModelState.Clear();
+            
+            // Create a new order object to avoid any potential issues
+            Order newOrder = new Order();
+            
+            // Copy over the OrderNotes if provided, otherwise use empty string
+            newOrder.OrderNotes = order.OrderNotes ?? "";
+            
+            // Set the current date
+            newOrder.OrderDate = DateTime.Now;
+            
+            // Get the current logged-in user
             var user = await _userManager.FindByNameAsync(User.Identity.Name);
-            order.Email = user.Email;
-
-            // 4. Save to the database
-            if (ModelState.IsValid)
-            {
-                _context.Add(order);
-                await _context.SaveChangesAsync();
-
-                // 5. Redirect to OrderDetails Create (to add products)
-                return RedirectToAction("Create", "OrderDetails", new { orderId = order.OrderID });
-            }
-
-            return View(order);
+            newOrder.Email = user.Email;
+            
+            // Save to the database
+            _context.Add(newOrder);
+            await _context.SaveChangesAsync();
+            
+            // Redirect to OrderDetails Create
+            return RedirectToAction("Create", "OrderDetails", new { orderId = newOrder.OrderID });
         }
 
 
@@ -157,7 +134,11 @@ namespace ChenKennethHW5.Controllers
                 return NotFound();
             }
 
-            var order = await _context.Orders.FindAsync(id);
+            var order = await _context.Orders
+                .Include(o => o.OrderDetails)
+                    .ThenInclude(od => od.Product)
+                .FirstOrDefaultAsync(m => m.OrderID == id);
+                
             if (order == null)
             {
                 return NotFound();
@@ -170,7 +151,7 @@ namespace ChenKennethHW5.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("OrderID,OrderNumber,OrderDate,OrderNotes")] Order order)
+        public async Task<IActionResult> Edit(int id, [Bind("OrderID,OrderNotes")] Order order)
         {
             if (id != order.OrderID)
             {
@@ -181,7 +162,17 @@ namespace ChenKennethHW5.Controllers
             {
                 try
                 {
-                    _context.Update(order);
+                    // Get the existing order from the database
+                    var existingOrder = await _context.Orders.FindAsync(id);
+                    if (existingOrder == null)
+                    {
+                        return NotFound();
+                    }
+
+                    // Only update the OrderNotes
+                    existingOrder.OrderNotes = order.OrderNotes;
+
+                    _context.Update(existingOrder);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
@@ -198,39 +189,6 @@ namespace ChenKennethHW5.Controllers
                 return RedirectToAction(nameof(Index));
             }
             return View(order);
-        }
-
-        // GET: Orders/Delete/5
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var order = await _context.Orders
-                .FirstOrDefaultAsync(m => m.OrderID == id);
-            if (order == null)
-            {
-                return NotFound();
-            }
-
-            return View(order);
-        }
-
-        // POST: Orders/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            var order = await _context.Orders.FindAsync(id);
-            if (order != null)
-            {
-                _context.Orders.Remove(order);
-            }
-
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
         }
 
         private bool OrderExists(int id)

@@ -1,72 +1,61 @@
-﻿
 @model ChenKennethHW5.Models.OrderDetail
 
 @{
     ViewData["Title"] = "Create";
 }
 
-<!--<h1>Create</h1>
-
+<h1>Create</h1>
 <h4>OrderDetail</h4>
 <hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Quantity" class="control-label"></label>
-                <input asp-for="Quantity" class="form-control" />
-                <span asp-validation-for="Quantity" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ProductPrice" class="control-label"></label>
-                <input asp-for="ProductPrice" class="form-control" />
-                <span asp-validation-for="ProductPrice" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ExtendedPrice" class="control-label"></label>
-                <input asp-for="ExtendedPrice" class="form-control" />
-                <span asp-validation-for="ExtendedPrice" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
-</div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <label>Product</label>
+    <form asp-action="Create" method="post">
+        @Html.AntiForgeryToken()
+        <input type="hidden" name="Order.OrderID" value="@Model.Order.OrderID" />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <div style="width: 380px;">
+            <select name="SelectedProductID" class="form-control" asp-items="ViewBag.AllProducts"></select>
+        </div>
+
+        <div>
+            <label asp-for="Quantity">Quantity</label>
+            <div style="width: 380px;">
+                <input asp-for="Quantity" class="form-control" type="number" min="1" max="1000" />
+                <div id="quantityValidation" class="text-danger" style="display: none;">Quantity must be between 1 and 1000</div>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Add to Order</button>
+    </form>
+    <a asp-action="Index" asp-controller="Orders">Back to List</a>
 </div>
 
--->
-
-
-<h1>Add Product to Order</h1>
-
-<form asp-action="Create" method="post">
-    @Html.AntiForgeryToken()
-
-    @Html.HiddenFor(model => model.Order.OrderID)
-
-    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
-    <div class="form-group">
-        <label asp-for="Product.ProductID" class="control-label">Product</label>
-        <select asp-for="Product.ProductID" class="form-control" asp-items="ViewBag.AllProducts"></select>
-        <span asp-validation-for="Product.ProductID" class="text-danger"></span>
-    </div>
-
-  
-    <div class="form-group">
-        <label asp-for="Quantity" class="control-label"></label>
-        <input asp-for="Quantity" class="form-control" type="number" min="1" />
-        <span asp-validation-for="Quantity" class="text-danger"></span>
-    </div>
-
-    <button type="submit" class="btn btn-primary">Add to Order</button>
-</form>
-
-<div>
-    <a asp-action="Index" asp-controller="Orders">Back to Orders</a>
-</div>
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const quantityInput = document.querySelector('input[name="Quantity"]');
+            const validationMessage = document.getElementById('quantityValidation');
+            
+            // Add event listener for input changes
+            quantityInput.addEventListener('input', function() {
+                const value = parseInt(this.value);
+                if (isNaN(value) || value < 1 || value > 1000) {
+                    validationMessage.style.display = 'block';
+                } else {
+                    validationMessage.style.display = 'none';
+                }
+            });
+            
+            // Add event listener for form submission
+            document.querySelector('form').addEventListener('submit', function(e) {
+                const value = parseInt(quantityInput.value);
+                if (isNaN(value) || value < 1 || value > 1000) {
+                    validationMessage.style.display = 'block';
+                    e.preventDefault();
+                }
+            });
+        });
+    </script>
+}
