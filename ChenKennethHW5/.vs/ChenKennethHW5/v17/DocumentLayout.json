@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\kenne\\source\\repos\\ChenKennethHW5\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{9CDC8D14-F3EA-4512-81C6-6D69D82AE362}|ChenKennethHW5\\ChenKennethHW5.csproj|c:\\users\\kenne\\source\\repos\\chenkennethhw5\\chenkennethhw5\\views\\orders\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9CDC8D14-F3EA-4512-81C6-6D69D82AE362}|ChenKennethHW5\\ChenKennethHW5.csproj|solutionrelative:chenkennethhw5\\views\\orders\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{9CDC8D14-F3EA-4512-81C6-6D69D82AE362}|ChenKennethHW5\\ChenKennethHW5.csproj|c:\\users\\kenne\\source\\repos\\chenkennethhw5\\chenkennethhw5\\views\\orders\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{9CDC8D14-F3EA-4512-81C6-6D69D82AE362}|ChenKennethHW5\\ChenKennethHW5.csproj|solutionrelative:chenkennethhw5\\views\\orders\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
@@ -33,10 +37,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{9CDC8D14-F3EA-4512-81C6-6D69D82AE362}|ChenKennethHW5\\ChenKennethHW5.csproj|c:\\users\\kenne\\source\\repos\\chenkennethhw5\\chenkennethhw5\\views\\orderdetails\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{9CDC8D14-F3EA-4512-81C6-6D69D82AE362}|ChenKennethHW5\\ChenKennethHW5.csproj|solutionrelative:chenkennethhw5\\views\\orderdetails\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9CDC8D14-F3EA-4512-81C6-6D69D82AE362}|ChenKennethHW5\\ChenKennethHW5.csproj|c:\\users\\kenne\\source\\repos\\chenkennethhw5\\chenkennethhw5\\views\\orders\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{9CDC8D14-F3EA-4512-81C6-6D69D82AE362}|ChenKennethHW5\\ChenKennethHW5.csproj|solutionrelative:chenkennethhw5\\views\\orders\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9CDC8D14-F3EA-4512-81C6-6D69D82AE362}|ChenKennethHW5\\ChenKennethHW5.csproj|c:\\users\\kenne\\source\\repos\\chenkennethhw5\\chenkennethhw5\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -174,7 +174,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Bookmark",
@@ -182,59 +182,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Details.cshtml",
-              "DocumentMoniker": "C:\\Users\\kenne\\source\\repos\\ChenKennethHW5\\ChenKennethHW5\\Views\\Orders\\Details.cshtml",
-              "RelativeDocumentMoniker": "ChenKennethHW5\\Views\\Orders\\Details.cshtml",
-              "ToolTip": "C:\\Users\\kenne\\source\\repos\\ChenKennethHW5\\ChenKennethHW5\\Views\\Orders\\Details.cshtml*",
-              "RelativeToolTip": "ChenKennethHW5\\Views\\Orders\\Details.cshtml*",
-              "ViewState": "AgIAABwAAAAAAAAAAAAEwC8AAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-10T05:54:00.542Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "OrdersController.cs",
-              "DocumentMoniker": "C:\\Users\\kenne\\source\\repos\\ChenKennethHW5\\ChenKennethHW5\\Controllers\\OrdersController.cs",
-              "RelativeDocumentMoniker": "ChenKennethHW5\\Controllers\\OrdersController.cs",
-              "ToolTip": "C:\\Users\\kenne\\source\\repos\\ChenKennethHW5\\ChenKennethHW5\\Controllers\\OrdersController.cs",
-              "RelativeToolTip": "ChenKennethHW5\\Controllers\\OrdersController.cs",
-              "ViewState": "AgIAAC0AAAAAAAAAAAAuwD8AAAA0AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-29T01:21:37.253Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Order.cs",
-              "DocumentMoniker": "C:\\Users\\kenne\\source\\repos\\ChenKennethHW5\\ChenKennethHW5\\Models\\Order.cs",
-              "RelativeDocumentMoniker": "ChenKennethHW5\\Models\\Order.cs",
-              "ToolTip": "C:\\Users\\kenne\\source\\repos\\ChenKennethHW5\\ChenKennethHW5\\Models\\Order.cs",
-              "RelativeToolTip": "ChenKennethHW5\\Models\\Order.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-28T21:43:53.148Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "ProductsController.cs",
-              "DocumentMoniker": "C:\\Users\\kenne\\source\\repos\\ChenKennethHW5\\ChenKennethHW5\\Controllers\\ProductsController.cs",
-              "RelativeDocumentMoniker": "ChenKennethHW5\\Controllers\\ProductsController.cs",
-              "ToolTip": "C:\\Users\\kenne\\source\\repos\\ChenKennethHW5\\ChenKennethHW5\\Controllers\\ProductsController.cs",
-              "RelativeToolTip": "ChenKennethHW5\\Controllers\\ProductsController.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAUwBoAAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-29T01:21:11.707Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "OrderDetail.cs",
               "DocumentMoniker": "C:\\Users\\kenne\\source\\repos\\ChenKennethHW5\\ChenKennethHW5\\Models\\OrderDetail.cs",
               "RelativeDocumentMoniker": "ChenKennethHW5\\Models\\OrderDetail.cs",
@@ -242,12 +190,11 @@
               "RelativeToolTip": "ChenKennethHW5\\Models\\OrderDetail.cs",
               "ViewState": "AgIAAAcAAAAAAAAAAAAzwA8AAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-28T22:08:53.47Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-28T22:08:53.47Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Product.cs",
               "DocumentMoniker": "C:\\Users\\kenne\\source\\repos\\ChenKennethHW5\\ChenKennethHW5\\Models\\Product.cs",
               "RelativeDocumentMoniker": "ChenKennethHW5\\Models\\Product.cs",
@@ -255,8 +202,7 @@
               "RelativeToolTip": "ChenKennethHW5\\Models\\Product.cs",
               "ViewState": "AgIAAAcAAAAAAAAAAAAQwBgAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-28T21:43:51.853Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-28T21:43:51.853Z"
             },
             {
               "$type": "Document",
@@ -268,12 +214,11 @@
               "RelativeToolTip": "ChenKennethHW5\\Views\\Suppliers\\Index.cshtml",
               "ViewState": "AgIAAA8AAAAAAAAAAAAAACkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-09T22:42:03.682Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-09T22:42:03.682Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\kenne\\source\\repos\\ChenKennethHW5\\ChenKennethHW5\\Views\\Orders\\Index.cshtml",
               "RelativeDocumentMoniker": "ChenKennethHW5\\Views\\Orders\\Index.cshtml",
@@ -281,12 +226,11 @@
               "RelativeToolTip": "ChenKennethHW5\\Views\\Orders\\Index.cshtml",
               "ViewState": "AgIAABIAAAAAAAAAAAAAADAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-10T04:03:53.714Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-10T04:03:53.714Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "OrderDetailsController.cs",
               "DocumentMoniker": "C:\\Users\\kenne\\source\\repos\\ChenKennethHW5\\ChenKennethHW5\\Controllers\\OrderDetailsController.cs",
               "RelativeDocumentMoniker": "ChenKennethHW5\\Controllers\\OrderDetailsController.cs",
@@ -294,12 +238,11 @@
               "RelativeToolTip": "ChenKennethHW5\\Controllers\\OrderDetailsController.cs",
               "ViewState": "AgIAAEQAAAAAAAAAAAAUwGAAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-29T01:21:00.229Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-29T01:21:00.229Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "Create.cshtml",
               "DocumentMoniker": "C:\\Users\\kenne\\source\\repos\\ChenKennethHW5\\ChenKennethHW5\\Views\\OrderDetails\\Create.cshtml",
               "RelativeDocumentMoniker": "ChenKennethHW5\\Views\\OrderDetails\\Create.cshtml",
@@ -307,8 +250,7 @@
               "RelativeToolTip": "ChenKennethHW5\\Views\\OrderDetails\\Create.cshtml",
               "ViewState": "AgIAACQAAAAAAAAAAAAAAAcAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-10T04:27:53.81Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-10T04:27:53.81Z"
             },
             {
               "$type": "Document",
@@ -320,12 +262,11 @@
               "RelativeToolTip": "ChenKennethHW5\\Views\\Products\\Index.cshtml",
               "ViewState": "AgIAACUAAAAAAAAAAAAUwEQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-09T20:55:07.763Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-09T20:55:07.763Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 0,
               "Title": "Create.cshtml",
               "DocumentMoniker": "C:\\Users\\kenne\\source\\repos\\ChenKennethHW5\\ChenKennethHW5\\Views\\Orders\\Create.cshtml",
               "RelativeDocumentMoniker": "ChenKennethHW5\\Views\\Orders\\Create.cshtml",
@@ -338,6 +279,54 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ProductsController.cs",
+              "DocumentMoniker": "C:\\Users\\kenne\\source\\repos\\ChenKennethHW5\\ChenKennethHW5\\Controllers\\ProductsController.cs",
+              "RelativeDocumentMoniker": "ChenKennethHW5\\Controllers\\ProductsController.cs",
+              "ToolTip": "C:\\Users\\kenne\\source\\repos\\ChenKennethHW5\\ChenKennethHW5\\Controllers\\ProductsController.cs",
+              "RelativeToolTip": "ChenKennethHW5\\Controllers\\ProductsController.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAUwBoAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-29T01:21:11.707Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Order.cs",
+              "DocumentMoniker": "C:\\Users\\kenne\\source\\repos\\ChenKennethHW5\\ChenKennethHW5\\Models\\Order.cs",
+              "RelativeDocumentMoniker": "ChenKennethHW5\\Models\\Order.cs",
+              "ToolTip": "C:\\Users\\kenne\\source\\repos\\ChenKennethHW5\\ChenKennethHW5\\Models\\Order.cs",
+              "RelativeToolTip": "ChenKennethHW5\\Models\\Order.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-28T21:43:53.148Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "C:\\Users\\kenne\\source\\repos\\ChenKennethHW5\\ChenKennethHW5\\Views\\Orders\\Details.cshtml",
+              "RelativeDocumentMoniker": "ChenKennethHW5\\Views\\Orders\\Details.cshtml",
+              "ToolTip": "C:\\Users\\kenne\\source\\repos\\ChenKennethHW5\\ChenKennethHW5\\Views\\Orders\\Details.cshtml",
+              "RelativeToolTip": "ChenKennethHW5\\Views\\Orders\\Details.cshtml",
+              "ViewState": "AgIAABwAAAAAAAAAAAAEwC8AAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-10T05:54:00.542Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "OrdersController.cs",
+              "DocumentMoniker": "C:\\Users\\kenne\\source\\repos\\ChenKennethHW5\\ChenKennethHW5\\Controllers\\OrdersController.cs",
+              "RelativeDocumentMoniker": "ChenKennethHW5\\Controllers\\OrdersController.cs",
+              "ToolTip": "C:\\Users\\kenne\\source\\repos\\ChenKennethHW5\\ChenKennethHW5\\Controllers\\OrdersController.cs",
+              "RelativeToolTip": "ChenKennethHW5\\Controllers\\OrdersController.cs",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAuwD8AAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-29T01:21:37.253Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 17,
               "Title": "Create.cshtml",
               "DocumentMoniker": "C:\\Users\\kenne\\source\\repos\\ChenKennethHW5\\ChenKennethHW5\\Views\\Products\\Create.cshtml",
@@ -346,8 +335,7 @@
               "RelativeToolTip": "ChenKennethHW5\\Views\\Products\\Create.cshtml",
               "ViewState": "AgIAAAcAAAAAAAAAAADwvykAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-09T21:56:14.423Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-09T21:56:14.423Z"
             },
             {
               "$type": "Document",
@@ -359,8 +347,7 @@
               "RelativeToolTip": "ChenKennethHW5\\Controllers\\SuppliersController.cs",
               "ViewState": "AgIAABQAAAAAAAAAAAAiwCQAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-29T01:21:22.465Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-29T01:21:22.465Z"
             },
             {
               "$type": "Document",
@@ -372,8 +359,7 @@
               "RelativeToolTip": "ChenKennethHW5\\Views\\Products\\Edit.cshtml",
               "ViewState": "AgIAAAkAAAAAAAAAAAAAACEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-09T22:45:50.961Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-09T22:45:50.961Z"
             },
             {
               "$type": "Document",
@@ -385,8 +371,7 @@
               "RelativeToolTip": "ChenKennethHW5\\Views\\Products\\Details.cshtml",
               "ViewState": "AgIAACEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-10T03:16:42.699Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-10T03:16:42.699Z"
             },
             {
               "$type": "Document",
@@ -398,8 +383,7 @@
               "RelativeToolTip": "ChenKennethHW5\\Views\\Suppliers\\Details.cshtml",
               "ViewState": "AgIAAA8AAAAAAAAAAAAUwC4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-10T03:16:54.619Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-10T03:16:54.619Z"
             },
             {
               "$type": "Document",
@@ -411,8 +395,7 @@
               "RelativeToolTip": "ChenKennethHW5\\Views\\Shared\\_LoginPartial.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-09T21:17:25.226Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-09T21:17:25.226Z"
             },
             {
               "$type": "Document",
@@ -424,8 +407,7 @@
               "RelativeToolTip": "ChenKennethHW5\\Models\\Supplier.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-28T21:48:56.524Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-28T21:48:56.524Z"
             },
             {
               "$type": "Document",
@@ -437,8 +419,7 @@
               "RelativeToolTip": "ChenKennethHW5\\Models\\AppUser.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-28T21:43:51.806Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-28T21:43:51.806Z"
             },
             {
               "$type": "Document",
@@ -450,8 +431,7 @@
               "RelativeToolTip": "ChenKennethHW5\\Controllers\\AccountController.cs",
               "ViewState": "AgIAAGYAAAAAAAAAAAAQwHcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-28T21:43:52.159Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-28T21:43:52.159Z"
             },
             {
               "$type": "Document",
@@ -463,8 +443,7 @@
               "RelativeToolTip": "ChenKennethHW5\\Seeding\\SeedUsers.cs",
               "ViewState": "AgIAAAwAAAAAAAAAAAApwCMAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-28T21:43:52.029Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-28T21:43:52.029Z"
             },
             {
               "$type": "Document",
@@ -476,8 +455,7 @@
               "RelativeToolTip": "ChenKennethHW5\\Program.cs",
               "ViewState": "AgIAAEMAAAAAAAAAAAAlwFMAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-28T21:43:48.254Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-28T21:43:48.254Z"
             },
             {
               "$type": "Document",
@@ -489,8 +467,7 @@
               "RelativeToolTip": "ChenKennethHW5\\Views\\Account\\Login.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-09T19:52:20.849Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-09T19:52:20.849Z"
             },
             {
               "$type": "Document",
@@ -502,8 +479,7 @@
               "RelativeToolTip": "ChenKennethHW5\\Views\\Shared\\_Layout.cshtml",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAABsAAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-09T20:25:25.707Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-09T20:25:25.707Z"
             },
             {
               "$type": "Document",
@@ -515,8 +491,7 @@
               "RelativeToolTip": "ChenKennethHW5\\Models\\ViewModels\\AccountViewModels.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-28T21:43:51.886Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-28T21:43:51.886Z"
             },
             {
               "$type": "Document",
