@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\ChenKennethHW5.props" />
+</Project>

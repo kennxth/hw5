@@ -1,0 +1,77 @@
+﻿@model ChenKennethHW5.Models.Order
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+
+<div>
+    <h4>Order</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.OrderNumber)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.OrderNumber)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.OrderDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.OrderDate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.OrderNotes)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.OrderNotes)
+        </dd>
+    </dl>
+    <h4>Order Items</h4>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Extended Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.OrderDetails)
+            {
+                <tr>
+                    <td>@item.Product.Name</td>
+                    <td>@item.ProductPrice.ToString("C")</td>
+                    <td>@item.Quantity</td>
+                    <td>@item.ExtendedPrice.ToString("C")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <h4>Order Summary</h4>
+    <table class="table">
+        <tr>
+            <th>Subtotal:</th>
+            <td>@Model.Subtotal.ToString("C")</td>
+        </tr>
+        <tr>
+            <th>Sales Tax (8.25%):</th>
+            <td>@Model.SalesTax.ToString("C")</td>
+        </tr>
+        <tr>
+            <th>Total:</th>
+            <td><strong>@Model.Total.ToString("C")</strong></td>
+        </tr>
+    </table>
+
+
+</div>
+
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.OrderID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
